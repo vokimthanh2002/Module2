@@ -2,6 +2,7 @@ package stackandqueue.linkedList.bt;
 
 import java.util.Scanner;
 import java.util.TreeMap;
+
 public class CountUseTreeMap {
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -10,7 +11,7 @@ public class CountUseTreeMap {
         String[] array= str.split(" ");
         TreeMap<String,Integer> map = new TreeMap<>();
         for(String x: array){
-            if(map.get(x) != null){
+            if(map.containsKey(x)){
                 int count = map.get(x);
                 count++;
                 map.put(x, count);

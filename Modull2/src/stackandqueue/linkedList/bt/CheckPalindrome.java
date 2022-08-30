@@ -41,7 +41,6 @@ public static boolean checkStack(String str){
     }
     String s1="";
     String s2="";
-
     while (!stack.isEmpty()){
         s1=s1+stack.pop();
     }
