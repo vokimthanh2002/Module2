@@ -1,10 +1,13 @@
-package quanlysinhvien;
+package quanlysinhvien.controller;
+import quanlysinhvien.model.Student;
+import quanlysinhvien.service.ServiceSinhVienImpl;
+
 import java.util.Scanner;
 
-public class Main {
+public class Controller {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ListStudent dssv = new  ListStudent();
+        ServiceSinhVienImpl dssv = new ServiceSinhVienImpl ();
         int luaChon = 0;
         do {
             System.out.println("-----------MENU ---------- ");
@@ -48,12 +51,22 @@ public class Main {
 //          7. Xóa một sinh viên ra khỏi danh sách dựa trên mã sinh viên.
                     System.out.println("Nhập mã sinh viên: ");
                     String maSinhVien = sc.nextLine();
-                    Student sv = new Student(maSinhVien);
-                    System.out.println("Xóa sinh viên trong danh sách: "+dssv.xoaSinhVien(sv));
+                    System.out.println("Ban chac chan muon xoa!!");
+                    System.out.println("1.Yes");
+                    System.out.println("2.No");
+                    int choose= Integer.parseInt(sc.nextLine());
+                    switch (choose){
+                        case 1->{
+                            Student sv = new Student(maSinhVien);
+                            System.out.println("Xóa sinh viên trong danh sách: "+dssv.xoaSinhVien(sv));
+                        }
+                        case 2-> System.out.println("Ban chua xac nhan xoa!!");
+                    }
                 }
                 case 8-> {
 //          8. Tìm kiếm tất cả sinh viên dựa trên Tên được nhập từ bàn phím.
-                    System.out.println("Nhập họ và tên: "); String hoVaTen = sc.nextLine();
+                    System.out.println("Nhập họ và tên: ");
+                    String hoVaTen = sc.nextLine();
                     System.out.println("Kết quả tìm kiếm: ");
                     dssv.timSinhVien(hoVaTen);
                 }

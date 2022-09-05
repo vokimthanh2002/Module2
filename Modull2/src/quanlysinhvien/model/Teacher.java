@@ -1,4 +1,4 @@
-package quanlysinhvien;
+package quanlysinhvien.model;
 
 public class Teacher extends Person{
     private String chuyenMon;

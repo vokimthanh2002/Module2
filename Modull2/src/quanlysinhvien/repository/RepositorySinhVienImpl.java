@@ -1,17 +1,19 @@
-package quanlysinhvien;
+package quanlysinhvien.repository;
+import quanlysinhvien.model.Student;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class ListStudent {
+public class RepositorySinhVienImpl implements RepositorySinhVien {
     private ArrayList<Student> danhSach;
 
-    public ListStudent() {
+    public RepositorySinhVienImpl() {
         this.danhSach = new ArrayList<Student>();
     }
 
-    public ListStudent(ArrayList<Student> danhSach) {
+    public RepositorySinhVienImpl(ArrayList<Student> danhSach) {
         this.danhSach = danhSach;
     }
     public void themSinhVien(Student sv) {
@@ -34,7 +36,6 @@ public class ListStudent {
         Student st= new Student(maSinhVien,tenSV,ngaySinh,gioiTinh,lop,diemSo);
         return st;
     }
-
     public void inDanhSachSinhVien() {
         int i=1;
         for (Student sinhVien : danhSach) {

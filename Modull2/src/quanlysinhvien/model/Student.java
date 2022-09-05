@@ -1,4 +1,4 @@
-package quanlysinhvien;
+package quanlysinhvien.model;
 import java.util.Objects;
 public class Student extends Person implements Comparable<Student> {
     private String lop;
