@@ -1,4 +1,4 @@
-package quanlyphuongtiengiaothong;
+package quanlyphuongtiengiaothong.model;
 
 import java.util.ArrayList;
 import java.util.Objects;

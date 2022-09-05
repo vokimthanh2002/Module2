@@ -1,46 +1,20 @@
-package quanlyphuongtiengiaothong;
+package quanlyphuongtiengiaothong.repository;
+
+import quanlyphuongtiengiaothong.model.HangSanXuat;
+import quanlyphuongtiengiaothong.model.Oto;
+import quanlyphuongtiengiaothong.model.XeMay;
+import quanlyphuongtiengiaothong.model.XeTai;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
-    public static ArrayList<XeTai> xeTaiList= new ArrayList();
-    public static ArrayList<XeMay> xeMayList= new ArrayList();
-    public static ArrayList<Oto> oToList= new ArrayList();
-    public static   Scanner sc= new Scanner(System.in);
-
-    public static void main(String[] args) {
-        menu();
-    }
-    public static void menu(){
-        int choose;
-        do {
-            System.out.println("-----CHUONG TRINH QUAN LY PHUONG TIEN GIAO THONG-----");
-            System.out.println("1.  Thêm mới phương tiện.");
-            System.out.println("2.  Hiện thị phương tiện.");
-            System.out.println("3.  Xóa phương tiện.");
-            System.out.println("4.  Tìm kiếm theo biển kiểm soát.");
-            System.out.println("5. Hien thi danh sach tat ca cac xe: ");
-            System.out.println("6. Thoát.");
-            System.out.println("Chon chuc nang thuc hien: ");
-            choose= Integer.parseInt(sc.nextLine());
-            switch (choose){
-                case 1->
-                        themMoiPhuongTien();
-                case 2->
-                        hienThiPhuongTien();
-                case 3->
-                        xoaPhuongTien();
-                case 4->
-                        timKiemTheoBienSoXe();
-                case 5->
-                        hienThiTatCa();
-                case 6->
-                        System.exit(0);
-            }
-        }while (choose!=0);
-    }
-    public static void themMoiPhuongTien(){
+public class RepositoryPhuongTienImpl implements RepositoryPhuongTien {
+    public ArrayList<XeTai> xeTaiList= new ArrayList();
+    public  ArrayList<XeMay> xeMayList= new ArrayList();
+    public  ArrayList<Oto> oToList= new ArrayList();
+    public Scanner sc= new Scanner(System.in);
+    @Override
+    public  void themMoiPhuongTien(){
         System.out.println("1. Them xe tai");
         System.out.println("2. Them o to");
         System.out.println("3. Them xe may");
@@ -48,15 +22,14 @@ public class Main {
         int choose= Integer.parseInt(sc.nextLine());
         switch (choose){
             case 1->
-                nhapXeTai();
+                    nhapXeTai();
             case 2->
-                nhapOto();
+                    nhapOto();
             case 3->
-                nhapXeMay();
+                    nhapXeMay();
         }
     }
-
-    private static void nhapXeMay() {
+    private  void nhapXeMay() {
         System.out.println("Nhap bien kiem soat: ");
         String bienKiemSoat= sc.nextLine();
         HangSanXuat hangSanXuat= new HangSanXuat();
@@ -73,7 +46,7 @@ public class Main {
         xeMayList.add(xeMay);
     }
 
-    private static void nhapOto() {
+    private  void nhapOto() {
         System.out.println("Nhap bien kiem soat: ");
         String bienKiemSoat= sc.nextLine();
         HangSanXuat hangSanXuat= new HangSanXuat();
@@ -92,7 +65,7 @@ public class Main {
         oToList.add(oto);
     }
 
-    private static void nhapXeTai() {
+    private  void nhapXeTai() {
         System.out.println("Nhap bien kiem soat: ");
         String bienKiemSoat= sc.nextLine();
         HangSanXuat hangSanXuat= new HangSanXuat();
@@ -109,7 +82,9 @@ public class Main {
         xeTaiList.add(xeTai);
     }
 
-    public static void hienThiPhuongTien(){
+
+    @Override
+    public  void hienThiPhuongTien(){
         System.out.println("1. Hien thi danh sach xe tai");
         System.out.println("2. Hien thi danh sach o to");
         System.out.println("3. Hien thi danh sach xe may");
@@ -145,7 +120,9 @@ public class Main {
             }
         }
     }
-    public static void hienThiTatCa(){
+
+    @Override
+    public  void hienThiTatCa(){
         if(oToList.isEmpty() && xeMayList.isEmpty() && xeTaiList.isEmpty()){
             System.out.println("Chua co xe nao trong danh sach!!!");
         }else{
@@ -164,7 +141,9 @@ public class Main {
 
         }
     }
-    public static void xoaPhuongTien(){
+
+    @Override
+    public  void xoaPhuongTien(){
         System.out.println("Nhap vao bien kiem soat can xoa: ");
         String bienXoa= sc.nextLine();
         if(oToList.isEmpty() && xeMayList.isEmpty() && xeTaiList.isEmpty()){
@@ -194,7 +173,9 @@ public class Main {
             }
         }
     }
-    public static void timKiemTheoBienSoXe() {
+
+    @Override
+    public  void timKiemTheoBienSoXe() {
         System.out.println("Nhap vao bien so xe can tim kiem: ");
         String bienTim = sc.nextLine();
         if (oToList.isEmpty() && xeMayList.isEmpty() && xeTaiList.isEmpty()) {
