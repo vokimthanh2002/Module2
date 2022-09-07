@@ -4,27 +4,22 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Convert {
-    public static void convert(int numberBinari) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Vui long nhap so can  chuyen doi: ");
-        int number = sc.nextInt();
+    public static void convert(int number) {
         Stack<Integer> stack = new Stack<>();
         while (number > 0) {
-            int temp = number % numberBinari;
+            int temp = number % 2;
             stack.push(temp);
-            number /= numberBinari;
+            number /= 2;
         }
-        System.out.println("Sau khi da chuyen doi: ");
-        while (!stack.empty()) {
-            if (stack.peek() < 10) {
-                System.out.print(stack.pop() + " ");
-         }
-            else {
-                System.out.println((char) (stack.pop() + 55) + " ");
-            }
+        final int SIZE= stack.size();
+        for(int i=0; i<SIZE;i++){
+            System.out.print(stack.pop()+" ");
         }
     }
     public static void main(String[] args) {
-        convert(2);
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Nhap so can chuyen doi: ");
+        int number= sc.nextInt();
+        convert(number);
     }
     }
